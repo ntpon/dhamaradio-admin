@@ -73,7 +73,7 @@ function InputFile({
           type='file'
           style={{ display: "none" }}
           onChange={pickedHandler}
-          onClick={(event: React.MouseEvent<HTMLInputElement>) => {
+          onClick={(event: any) => {
             event.target.value = null
           }}
           ref={fileRef}
