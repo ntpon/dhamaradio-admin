@@ -30,8 +30,8 @@ const LoginPage = () => {
   )
   const router = useRouter()
   const [showPassword, setShowPassword] = useState(false)
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("v@admin.com")
+  const [password, setPassword] = useState("v@admin")
   const [isLoadingPage, setIsLoadingPage] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
 
