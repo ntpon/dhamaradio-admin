@@ -15,9 +15,20 @@ import {
 } from "recharts"
 import Loading from "../../components/loading/loading"
 import api from "../../utils/api"
-
+import Empty from "../../components/empty/empty"
+interface IDashboardData {
+  userCount: string
+  albumCount: string
+  contactCount: string
+  playlistCount: string
+  chartData: {
+    mth: string
+    mlable: string
+    value: string
+  }[]
+}
 function DashboardIndex() {
-  const [data, setData] = useState<any>(null)
+  const [data, setData] = useState<IDashboardData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     api.Dashboard.get()
@@ -32,6 +43,8 @@ function DashboardIndex() {
     <PageLayout titleText='Dashboard'>
       {isLoading ? (
         <Loading />
+      ) : !data ? (
+        <Empty />
       ) : (
         <Box>
           <Flex flexWrap='wrap'>
@@ -51,13 +64,13 @@ function DashboardIndex() {
               title='การฟัง'
               description='จำนวนการฟังเสียงทั้งหมด'
               icon={<BsPerson size='44px' />}
-              stat={data.contactCount}
+              stat={data.playlistCount}
             />
             <StatusCard
               title='ข้อความ'
               description='จำนวนข้อความที่รอตอบกลับ'
               icon={<BsPerson size='44px' />}
-              stat={data.playlistCount}
+              stat={data.contactCount}
             />
           </Flex>
           <Box mt='25px' height='500px'>
