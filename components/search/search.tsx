@@ -30,7 +30,12 @@ function Search({
     }
   }, [isClear, search, onSearchSubmit])
   return (
-    <Flex flex={3} marginRight='15px'>
+    <Flex
+      flex={3}
+      marginRight='15px'
+      flexDirection={{ base: "column", md: "row" }}
+      width={{ base: "100%", md: "auto" }}
+    >
       <Box
         width='100%'
         as='form'
@@ -53,12 +58,13 @@ function Search({
           />
         </InputGroup>
       </Box>
-      <Box marginLeft='5px'>
+      <Box marginX='5px' marginY={{ base: "1", md: "0" }}>
         <Button
           onClick={() => {
             setSearch("")
             setIsClear(true)
           }}
+          width='100%'
         >
           คืนค่าเริ่มต้น
         </Button>
