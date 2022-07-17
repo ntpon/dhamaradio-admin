@@ -9,7 +9,7 @@ const PageLayout = ({ titleText = "", description = "", children }: Props) => {
   return (
     <>
       <Head>
-        <title>{titleText ? titleText + " | " : ""} RECALL REMEMBER</title>
+        <title>{titleText ? titleText + " | " : ""} DHMARADIO</title>
         <meta
           name='description'
           content={description ? description : titleText}
